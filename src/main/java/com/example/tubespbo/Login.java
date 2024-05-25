@@ -69,5 +69,32 @@ public class Login  {
         }
     }
 
+    public void updateStoredCredentials() {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        int user = Integer.parseInt(id.getText());
+        try {
+            // Mendapatkan data pengguna berdasarkan NIM
+            resultSet = DatabaseUtils.getUserById(user);
+
+            // Menampilkan hasil query
+            if (resultSet.next()) {
+                storedId = resultSet.getInt("id");
+                storedPassword = resultSet.getString("password");
+                storedAlamat = resultSet.getString("alamat");
+                storedNumberPhone = resultSet.getString("numberphone");
+                storedUsername = resultSet.getString("nama");
+
+                UserData userData = new UserData(storedId, storedUsername, storedAlamat, storedNumberPhone);
+                UserData.setINSTANCE(userData);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Kesalahan dalam query: " + e.getMessage());
+        } finally {
+            // Menutup koneksi
+            DatabaseUtils.closeConnection(connection);
+        }
+    }
 
 }
