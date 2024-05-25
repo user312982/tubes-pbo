@@ -100,22 +100,22 @@
                      <children>
                         <TableView fx:id="tableView" layoutX="-1.0" layoutY="-1.0" prefHeight="383.0" prefWidth="528.0">
                            <columns>
-                              <TableColumn text="No.">
+                              <TableColumn prefWidth="56.0" text="No.">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="number" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn text="Day">
+                              <TableColumn prefWidth="185.99996948242188" text="Day">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="day" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn text="Start Time">
+                              <TableColumn prefWidth="110" text="Start Time">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="startTime" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn text="End Time">
+                              <TableColumn prefWidth="175.3333740234375" text="End Time">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="endTime" />
                                  </cellValueFactory>
