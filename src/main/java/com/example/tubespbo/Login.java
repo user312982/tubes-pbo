@@ -21,21 +21,27 @@ public class Login  {
     @FXML
     private Label wrongLogin;
     @FXML
-    private TextField nim;
+    private TextField id;
     @FXML
     private PasswordField password;
 
-    private String storedNim;
+    private Main main;
+    private int storedId;
     private String storedPassword, storedAlamat, storedNumberPhone, storedUsername;;
+
+    //Tambahkan setter untuk Main
+    public void setMain(Main main){
+        this.main = main;
+    }
 
     @FXML
     private void initialize() {
         // Menambahkan listener ke TextField untuk mendeteksi perubahan teks
-        nim.textProperty().addListener(new ChangeListener<String>() {
+        id.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 // Menjalankan aksi ketika teks berubah
-                databaseConnection(); // Panggil metode untuk mengupdate data
+                updateStoredCredentials(); // Panggil metode untuk mengupdate data
             }
         });
 
@@ -43,7 +49,7 @@ public class Login  {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 // Menjalankan aksi ketika teks berubah
-                databaseConnection(); // Panggil metode untuk mengupdate data
+                updateStoredCredentials(); // Panggil metode untuk mengupdate data
             }
         });
 
