@@ -80,20 +80,21 @@ public class MapelPage {
         ObservableList<JadwalMapel> data = FXCollections.observableArrayList(jadwalMapels);
 
         // Add columns to TableView
-        TableColumn<JadwalMapel, Integer> numberColumn = new TableColumn<>("Number");
-        numberColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().numberProperty().get()).asObject());
+        if (tableView.getColumns().isEmpty()) {
+            TableColumn<JadwalMapel, Integer> numberColumn = new TableColumn<>("Number");
+            numberColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().numberProperty().get()).asObject());
 
-        TableColumn<JadwalMapel, String> dayColumn = new TableColumn<>("Day");
-        dayColumn.setCellValueFactory(cellData -> cellData.getValue().dayProperty());
+            TableColumn<JadwalMapel, String> dayColumn = new TableColumn<>("Day");
+            dayColumn.setCellValueFactory(cellData -> cellData.getValue().dayProperty());
 
-        TableColumn<JadwalMapel, String> startTimeColumn = new TableColumn<>("Start Time");
-        startTimeColumn.setCellValueFactory(cellData -> cellData.getValue().startTimeProperty());
+            TableColumn<JadwalMapel, String> startTimeColumn = new TableColumn<>("Start Time");
+            startTimeColumn.setCellValueFactory(cellData -> cellData.getValue().startTimeProperty());
 
-        TableColumn<JadwalMapel, String> endTimeColumn = new TableColumn<>("End Time");
-        endTimeColumn.setCellValueFactory(cellData -> cellData.getValue().endTimeProperty());
+            TableColumn<JadwalMapel, String> endTimeColumn = new TableColumn<>("End Time");
+            endTimeColumn.setCellValueFactory(cellData -> cellData.getValue().endTimeProperty());
 
-        tableView.getColumns().addAll(dayColumn, startTimeColumn, endTimeColumn);
-
+            tableView.getColumns().addAll(dayColumn, startTimeColumn, endTimeColumn);
+        }
         // Set model to TableView
         tableView.setItems(data);
     }
