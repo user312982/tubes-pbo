@@ -26,7 +26,7 @@ public class Login  {
     private PasswordField password;
 
     private String storedNim;
-    private String storedPassword;
+    private String storedPassword, storedAlamat, storedNumberPhone, storedUsername;;
 
     @FXML
     private void initialize() {
@@ -52,64 +52,22 @@ public class Login  {
 
     private void handleButtonAction(ActionEvent event) {
         try {
-            userLogin(event);
+            userLogin();
         } catch (IOException e) {
             wrongLogin.setText("Terjadi kesalahan: " + e.getMessage());
         }
     }
 
-    public void userLogin(ActionEvent event) throws IOException{
-        checkLogin();
-    }
-
-    public void checkLogin() throws IOException{
-        Main m = new Main();
-        if(nim.getText().equals(storedNim) && password.getText().equals(storedPassword)){
-
-            m.changeScene("menuPageDesign.fxml");
-        }
-
-        else if (nim.getText().isEmpty() && password.getText().isEmpty()) {
-            wrongLogin.setText("tambahkan data");
-        }
-
-        else {
-            wrongLogin.setText("wrong username or password"+storedNim);
-
+    public void userLogin() throws IOException {
+        int inputId = Integer.parseInt(id.getText());
+        if (inputId == storedId && password.getText().equals(storedPassword)) {
+            main.switchToMenuPage();
+        }else if (id.getText().isEmpty() && password.getText().isEmpty()) {
+            wrongLogin.setText("Tambahkan data");
+        } else {
+            wrongLogin.setText("Wrong username or password");
         }
     }
 
 
-
-    public void databaseConnection() {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        String user = nim.getText();
-        String passwordUser = password.getText();
-
-        try {
-            // Menggunakan koneksi dari DatabaseUtils
-            connection = SqlConnector.getConnection();
-
-            // Mengeksekusi query untuk mendapatkan data
-            String query = "SELECT * FROM user WHERE nim = ?";
-            preparedStatement = connection.prepareStatement(query); // Gunakan PreparedStatement
-            preparedStatement.setString(1, user); // Setel parameter query
-            resultSet = preparedStatement.executeQuery();
-
-            // Menampilkan hasil query
-            while (resultSet.next()) {
-                storedNim = resultSet.getString("nim");
-                storedPassword = resultSet.getString("password");
-            }
-
-
-        } catch (SQLException e) {
-            System.err.println("Kesalahan dalam query: " + e.getMessage());
-        } finally {
-            // Menutup koneksi dengan DatabaseUtils
-            SqlConnector.closeConnection(connection);
-        }
-    }
 }
