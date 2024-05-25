@@ -14,11 +14,11 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    private static Stage stg;
+    private static Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        stg = primaryStage;
+        primaryStage = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("loginFormDesign.fxml"));
         primaryStage.setTitle("Login");
@@ -28,7 +28,7 @@ public class Main extends Application {
 
     public void changeScene(String fxml) throws IOException{
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stg.getScene().setRoot(pane);
+        primaryStage.getScene().setRoot(pane);
     }
 
     public static void main(String[] args) {
