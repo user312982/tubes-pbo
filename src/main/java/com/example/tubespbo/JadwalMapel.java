@@ -7,13 +7,14 @@ import javafx.beans.property.StringProperty;
 
 public class JadwalMapel {
 //    private String day, startTime, endTime;
-    private StringProperty day,startTime, endTime;
+    private StringProperty day,startTime, endTime, studySubjects;
     private IntegerProperty number;
 
-    public JadwalMapel(String day, String startTime, String endTime) {
+    public JadwalMapel(String day, String startTime, String endTime, String studySubjects) {
         this.day = new SimpleStringProperty(day);
         this.startTime = new SimpleStringProperty(startTime);
         this.endTime = new SimpleStringProperty(endTime);
+        this.studySubjects = new SimpleStringProperty(studySubjects);
         this.number = new SimpleIntegerProperty();
     }
 
@@ -39,6 +40,18 @@ public class JadwalMapel {
 
     public void setEndTime(StringProperty endTime) {
         this.endTime = endTime;
+    }
+
+    public String getStudySubjects() {
+        return studySubjects.get();
+    }
+
+    public StringProperty studySubjectsProperty() {
+        return studySubjects;
+    }
+
+    public void setStudySubjects(String studySubjects) {
+        this.studySubjects.set(studySubjects);
     }
 
     public IntegerProperty getNumber() {

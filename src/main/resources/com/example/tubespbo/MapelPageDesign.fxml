@@ -120,6 +120,11 @@
                                     <PropertyValueFactory property="endTime" />
                                  </cellValueFactory>
                               </TableColumn>
+                              <TableColumn prefWidth="175.3333740234375" text="Study Subjects">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="studySubjects" />
+                                 </cellValueFactory>
+                              </TableColumn>
                            </columns>
                         </TableView>
                      </children>

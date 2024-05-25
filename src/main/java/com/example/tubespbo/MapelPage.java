@@ -93,7 +93,10 @@ public class MapelPage {
             TableColumn<JadwalMapel, String> endTimeColumn = new TableColumn<>("End Time");
             endTimeColumn.setCellValueFactory(cellData -> cellData.getValue().endTimeProperty());
 
-            tableView.getColumns().addAll(dayColumn, startTimeColumn, endTimeColumn);
+            TableColumn<JadwalMapel, String> studySubjectsColumn = new TableColumn<>("Study Objects");
+            studySubjectsColumn.setCellValueFactory(cellData -> cellData.getValue().studySubjectsProperty());
+
+            tableView.getColumns().addAll(dayColumn, startTimeColumn, endTimeColumn, studySubjectsColumn);
         }
         // Set model to TableView
         tableView.setItems(data);
@@ -112,8 +115,9 @@ public class MapelPage {
                 String day = rs.getString("day");
                 String startTime = rs.getString("startTime");
                 String endTime = rs.getString("endTime");
+                String studySubjects = rs.getString("studysubjects");
 
-                JadwalMapel jadwalMapel = new JadwalMapel(day, startTime, endTime);
+                JadwalMapel jadwalMapel = new JadwalMapel(day, startTime, endTime, studySubjects);
                 jadwalMapel.setNumber(i);
 
                 jadwalMapels.add(jadwalMapel);
