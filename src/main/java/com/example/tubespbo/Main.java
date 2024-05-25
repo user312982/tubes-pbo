@@ -40,14 +40,21 @@ public class Main extends Application {
         } else if (fxmlFile.equals("MenuPageDesign.fxml")) {
             MenuPage controller = loader.getController();
             controller.setMain(this);
+        } else if (fxmlFile.equals("JadwalPageDesign.fxml")) {
+            JadwalPage controller = loader.getController();
+            controller.setMain(this);
         } else if (fxmlFile.equals("MapelPageDesign.fxml")) {
-            MapelPage controller = loader.getController();
+            JadwalPage controller = loader.getController();
             controller.setMain(this);
         }
     }
 
     public void switchToMenuPage() throws IOException {
         switchScene("MenuPageDesign.fxml");
+    }
+
+    public void switchToJadwalPageDesign() throws IOException {
+        switchScene("JadwalPageDesign.fxml");
     }
 
     public static void main(String[] args) {

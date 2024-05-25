@@ -23,7 +23,7 @@ public class MenuPage {
 
     @FXML
     private void jadwalButtonAction(ActionEvent event) throws IOException {
-        main.switchScene("MapelPageDesign.fxml");
+        main.switchScene("JadwalPageDesign.fxml");
     }
 
 
