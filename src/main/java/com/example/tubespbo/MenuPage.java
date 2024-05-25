@@ -6,13 +6,37 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
+import static com.example.tubespbo.UserData.getInstance;
+
 public class MenuPage {
 
     @FXML
-    private Button logout;
+    private Button profileButton;
 
-    public void userLogout(ActionEvent event) throws IOException{
-        Main m = new Main();
-        m.changeScene("loginFormDesign.fxml");
+
+    private Main main;
+
+    // Metode untuk meneruskan objek Main dari kelas Main ke MenuPage
+    public void setMain(Main main) {
+        this.main = main;
     }
+
+    @FXML
+    private void jadwalButtonAction(ActionEvent event) throws IOException {
+        main.switchScene("MapelPageDesign.fxml");
+    }
+
+
+
+    public void setData() {
+        profileButton.setText(" " + getInstance().storedUsername);
+    }
+
+    @FXML
+    private void initialize() {
+        // Panggil metode untuk mengatur data ke dalam label saat halaman dibuka
+        setData();
+    }
+
 }
+
