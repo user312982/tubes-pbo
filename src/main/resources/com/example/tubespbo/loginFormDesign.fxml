@@ -14,8 +14,8 @@
    <right>
       <AnchorPane prefHeight="500.0" prefWidth="425.0" BorderPane.alignment="CENTER">
          <children>
+            <TextField fx:id="id" layoutX="100.0" layoutY="188.0" prefHeight="30.0" prefWidth="225.0" promptText="NIM" style="-fx-background-radius: 10px;" />
             <PasswordField fx:id="password" layoutX="100.0" layoutY="235.0" prefHeight="30.0" prefWidth="225.0" promptText="Password" style="-fx-background-radius: 10;" />
-            <TextField fx:id="nim" layoutX="100.0" layoutY="188.0" prefHeight="30.0" prefWidth="225.0" promptText="NIM" style="-fx-background-radius: 10px;" />
             <Button fx:id="button" layoutX="164.0" layoutY="311.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="28.0" prefWidth="97.0" style="-fx-background-color: #4287f5; -fx-background-radius: 10px;" text="Log in" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="13.0" />
