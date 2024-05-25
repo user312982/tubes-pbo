@@ -49,7 +49,7 @@ public class Login  {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 // Menjalankan aksi ketika teks berubah
-                updateStoredCredentials(); // Panggil metode untuk mengupdate data
+                updateStoredCredentials();  // Panggil metode untuk mengupdate data
             }
         });
 
