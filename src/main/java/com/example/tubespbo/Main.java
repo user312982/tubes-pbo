@@ -44,9 +44,16 @@ public class Main extends Application {
             JadwalPage controller = loader.getController();
             controller.setMain(this);
         } else if (fxmlFile.equals("MapelPageDesign.fxml")) {
-            JadwalPage controller = loader.getController();
+            MapelPage controller = loader.getController();
+            controller.setMain(this);
+        } else if (fxmlFile.equals("AbsensiPageDesign.fxml")) {
+            AbsensiPage controller = loader.getController();
+            controller.setMain(this);
+        } else if (fxmlFile.equals("NilaiPageDesign.fxml")) {
+            NilaiPage controller = loader.getController();
             controller.setMain(this);
         }
+
     }
 
     public void switchToMenuPage() throws IOException {
