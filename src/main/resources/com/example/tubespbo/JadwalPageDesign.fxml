@@ -41,11 +41,29 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Mata Pelajaran" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" onAction="#mapelButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Mata Pelajaran" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../image/book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/absen2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Nilai" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/grade.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -98,7 +116,7 @@
                <center>
                   <AnchorPane prefHeight="383.0" prefWidth="520.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="tableView" layoutX="-1.0" layoutY="-1.0" prefHeight="383.0" prefWidth="528.0">
+                        <TableView fx:id="tableView" layoutX="-5.0" layoutY="8.0" prefHeight="361.0" prefWidth="523.0">
                            <columns>
                               <TableColumn prefWidth="36.66668701171875" text="No.">
                                  <cellValueFactory>
