@@ -37,7 +37,6 @@ public class JadwalPage {
 
     private Main main;
 
-
     public void setMain(Main main) {
         this.main = main;
     }
@@ -68,6 +67,11 @@ public class JadwalPage {
     @FXML
     private void profileButtonAction(ActionEvent event) throws IOException {
         main.switchScene("MenuPageDesign.fxml");
+    }
+
+    @FXML
+    private void mapelButtonAction(ActionEvent event) throws IOException {
+        main.switchScene("MapelPageDesign.fxml");
     }
 
     int inputId = getInstance().storedId;
