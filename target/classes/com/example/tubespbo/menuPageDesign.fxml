@@ -1,15 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.MenuPage">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.MenuPage">
    <children>
-      <Button fx:id="logout" layoutX="305.0" layoutY="250.0" mnemonicParsing="false" onAction="#userLogout" prefHeight="61.0" prefWidth="169.0" style="-fx-background-color: red;" text="LOGOUT">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Button>
+      <BorderPane prefHeight="500.0" prefWidth="900.0">
+         <top>
+            <HBox prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #2c3b7c;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="profileButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="66.0" prefWidth="187.0" style="-fx-background-color: #2c3b7c;" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></HBox>
+         </top>
+         <left>
+            <VBox prefHeight="330.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#jadwalButtonAction" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Jadwal" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" onAction="#mapelButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Mata Pelajaran" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/absen2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Nilai" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/grade.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></VBox>
+         </left>
+         <bottom>
+            <HBox prefHeight="14.0" prefWidth="600.0" style="-fx-background-color: #646c9c;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #646c9c;" text="LogOut" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/power.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <Label fx:id="label" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </center>
+         <right>
+            <BorderPane prefHeight="383.0" prefWidth="754.0" BorderPane.alignment="CENTER">
+               <left>
+                  <AnchorPane prefHeight="383.0" prefWidth="753.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="38.0" layoutY="29.0" text="Welcome, ">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="169.0" layoutY="29.0" text="Dicha Wijaya Kusuma">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="38.0" layoutY="101.0" text="NIS">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="115.0" layoutY="101.0" text="11231020">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </left>
+            </BorderPane>
+         </right>
+      </BorderPane>
    </children>
 </AnchorPane>
