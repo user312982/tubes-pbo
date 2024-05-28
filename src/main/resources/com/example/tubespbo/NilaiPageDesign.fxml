@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.JadwalPage">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="900.0">
+         <top>
+            <HBox prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #2c3b7c;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="profileButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#profileButtonAction" prefHeight="66.0" prefWidth="187.0" style="-fx-background-color: #2c3b7c;" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/user.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+               </children></HBox>
+         </top>
+         <left>
+            <VBox prefHeight="330.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="JadwalButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Jadwal" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" onAction="#mapelButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Mata Pelajaran" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/absen2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #1f4b9c;" text="Nilai" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/grade.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></VBox>
+         </left>
+         <bottom>
+            <HBox prefHeight="14.0" prefWidth="600.0" style="-fx-background-color: #646c9c;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: #646c9c;" text="LogOut" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/power.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <BorderPane prefHeight="383.0" prefWidth="520.0" BorderPane.alignment="CENTER">
+               <left>
+                  <AnchorPane prefHeight="383.0" prefWidth="230.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="namaUser" layoutX="63.0" layoutY="39.0" prefHeight="25.0" prefWidth="154.0">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="idUser" layoutX="64.0" layoutY="113.0" prefHeight="21.0" prefWidth="152.0">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="383.0" prefWidth="520.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView fx:id="tableView" layoutX="-201.0" layoutY="20.0" prefHeight="341.0" prefWidth="689.0">
+                           <columns>
+                              <TableColumn prefWidth="32.66668701171875" text="No.">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="number" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="148.0" text="Nama">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="day" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="111.33331298828125" text="NIS">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="startTime" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="89.99993896484375" text="Nilai Tugas">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="endTime" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="110.0" text="Nilai UTS">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="studySubjects" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="93.3333740234375" text="Nilai UAS">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="studySubjects" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="106.6666259765625" text="Nilai Akhir">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="studySubjects" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
