@@ -13,7 +13,6 @@ public class MenuPage {
     @FXML
     private Button profileButton;
 
-
     private Main main;
 
     // Metode untuk meneruskan objek Main dari kelas Main ke MenuPage
@@ -26,6 +25,10 @@ public class MenuPage {
         main.switchScene("JadwalPageDesign.fxml");
     }
 
+    @FXML
+    private void mapelButtonAction(ActionEvent event) throws IOException {
+        main.switchScene("MapelPageDesign.fxml");
+    }
 
 
     public void setData() {
