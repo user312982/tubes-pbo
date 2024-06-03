@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.JadwalPage">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.AbsensiPage">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="900.0">
          <top>
@@ -30,7 +31,7 @@
          <left>
             <VBox prefHeight="330.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="JadwalButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Jadwal" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#jadwalButtonAction" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Jadwal" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -57,7 +58,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#mapelButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Nilai" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#nilaiButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Nilai" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -88,9 +89,10 @@
                <left>
                   <AnchorPane prefHeight="383.0" prefWidth="230.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Hadir" />
-                        <Button layoutX="93.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Izin" />
-                        <Button layoutX="163.0" layoutY="14.0" mnemonicParsing="false" text="Sakit" />
+                        <Button fx:id="hadirButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Hadir" onAction="#handleButtonPress"/>
+                        <Button fx:id="izinButton" layoutX="93.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Izin" onAction="#handleButtonPress"/>
+                        <Button fx:id="sakitButton" layoutX="163.0" layoutY="14.0" mnemonicParsing="false" text="Sakit" onAction="#handleButtonPress"/>
+                        <Label fx:id="timezoneLabel" layoutX="23.0" layoutY="80.0" />
                      </children>
                   </AnchorPane>
                </left>

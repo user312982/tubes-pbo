@@ -6,7 +6,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class JadwalMapel {
-//    private String day, startTime, endTime;
     private StringProperty day,startTime, endTime, studySubjects;
     private IntegerProperty number;
 

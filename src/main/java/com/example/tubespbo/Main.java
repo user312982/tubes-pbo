@@ -60,10 +60,6 @@ public class Main extends Application {
         switchScene("MenuPageDesign.fxml");
     }
 
-    public void switchToJadwalPageDesign() throws IOException {
-        switchScene("JadwalPageDesign.fxml");
-    }
-
     public static void main(String[] args) {
         launch(args);
     }

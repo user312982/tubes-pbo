@@ -1,26 +1,19 @@
 package com.example.tubespbo;
 
-public class UserData {
-    public static UserData INSTANCE;
+public class Siswa extends Person{
+    public static Siswa INSTANCE;
 
-    public int storedId;
-    public String storedUsername, storedAlamat, storedPhoneNumber;
-
-    public UserData(int storedId, String storedUsername, String storedAlamat, String storedPhoneNumber) {
-        this.storedId = storedId;
-        this.storedUsername = storedUsername;
-        this.storedAlamat = storedAlamat;
-        this.storedPhoneNumber = storedPhoneNumber;
+    public Siswa(int storedId, String storedUsername, String storedAlamat, String NumberPhone) {
+        super(storedId, storedUsername, storedAlamat, NumberPhone);
     }
 
-    public static UserData getInstance() {
+    public static Siswa getInstance() {
         return INSTANCE;
     }
 
-    public static void setINSTANCE(UserData userData) {
-        INSTANCE = userData;
+    public static void setINSTANCE(Siswa siswa) {
+        INSTANCE = siswa;
     }
-
 
     public void setStoredId(int storedId) {
         this.storedId = storedId;
