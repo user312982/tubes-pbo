@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-import static com.example.tubespbo.UserData.getInstance;
+import static com.example.tubespbo.Siswa.getInstance;
 
 public class MenuPage {
 
@@ -30,9 +30,19 @@ public class MenuPage {
         main.switchScene("MapelPageDesign.fxml");
     }
 
+    @FXML
+    private void absensiButtonAction(ActionEvent event) throws IOException {
+        main.switchScene("AbsensiPageDesign.fxml");
+    }
+
+    @FXML
+    public void nilaiButtonAction(ActionEvent event)  throws IOException {
+        main.switchScene("NilaiPageDesign.fxml");
+    }
 
     public void setData() {
-        profileButton.setText(" " + getInstance().storedUsername);
+        Siswa instance = Siswa.getInstance();
+        profileButton.setText(" " + instance.getStoredUsername());
     }
 
     @FXML
