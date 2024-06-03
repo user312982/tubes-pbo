@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.JadwalPage">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.NilaiPage">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="900.0">
          <top>
@@ -32,7 +32,7 @@
          <left>
             <VBox prefHeight="330.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="JadwalButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Jadwal" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#jadwalButtonAction" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Jadwal" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,7 +50,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#absensiButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -115,32 +115,32 @@
                               </TableColumn>
                               <TableColumn prefWidth="148.0" text="Nama">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="day" />
+                                    <PropertyValueFactory property="inputSiswa" />
                                  </cellValueFactory>
                               </TableColumn>
                               <TableColumn prefWidth="111.33331298828125" text="NIS">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="startTime" />
+                                    <PropertyValueFactory property="inputId" />
                                  </cellValueFactory>
                               </TableColumn>
                               <TableColumn prefWidth="89.99993896484375" text="Nilai Tugas">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="endTime" />
+                                    <PropertyValueFactory property="nilaiTugas" />
                                  </cellValueFactory>
                               </TableColumn>
                               <TableColumn prefWidth="110.0" text="Nilai UTS">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="studySubjects" />
+                                    <PropertyValueFactory property="nilaiUts" />
                                  </cellValueFactory>
                               </TableColumn>
                               <TableColumn prefWidth="93.3333740234375" text="Nilai UAS">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="studySubjects" />
+                                    <PropertyValueFactory property="nilaiUas" />
                                  </cellValueFactory>
                               </TableColumn>
                               <TableColumn prefWidth="106.6666259765625" text="Nilai Akhir">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="studySubjects" />
+                                    <PropertyValueFactory property="nilaiAkhir" />
                                  </cellValueFactory>
                               </TableColumn>
                            </columns>

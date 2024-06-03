@@ -48,7 +48,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#jadwalButtonAction" prefHeight="67.0" prefWidth="153.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#absensiButtonAction" prefHeight="67.0" prefWidth="153.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -57,7 +57,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" onAction="#jadwalButtonAction" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Nilai" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" onAction="#nilaiButtonAction" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" text="Nilai" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -100,17 +100,17 @@
                               </TableColumn>
                               <TableColumn prefWidth="215.99993896484375" text="Study Subjects">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="day" />
+                                    <PropertyValueFactory property="mapel" />
                                  </cellValueFactory>
                               </TableColumn>
                               <TableColumn prefWidth="114.666748046875" text="Class">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="startTime" />
+                                    <PropertyValueFactory property="kelas" />
                                  </cellValueFactory>
                               </TableColumn>
                               <TableColumn prefWidth="150.6666259765625" text="Major">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="endTime" />
+                                    <PropertyValueFactory property="jurusan" />
                                  </cellValueFactory>
                               </TableColumn>
                            </columns>
