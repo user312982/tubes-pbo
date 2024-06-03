@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -91,8 +91,8 @@ public class Login  {
                 storedNumberPhone = resultSet.getString("numberphone");
                 storedUsername = resultSet.getString("nama");
 
-                UserData userData = new UserData(storedId, storedUsername, storedAlamat, storedNumberPhone);
-                UserData.setINSTANCE(userData);
+                Siswa siswa = new Siswa(storedId, storedUsername, storedAlamat, storedNumberPhone);
+                Siswa.setINSTANCE(siswa);
             }
 
         } catch (SQLException e) {

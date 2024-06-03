@@ -1,24 +1,24 @@
 package com.example.tubespbo;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+    import javafx.beans.property.SimpleIntegerProperty;
+    import javafx.collections.FXCollections;
+    import javafx.collections.ObservableList;
+    import javafx.event.ActionEvent;
+    import javafx.fxml.FXML;
+    import javafx.scene.control.Button;
+    import javafx.scene.control.Label;
+    import javafx.scene.control.TableColumn;
+    import javafx.scene.control.TableView;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+    import java.io.IOException;
+    import java.sql.Connection;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
+    import java.sql.Statement;
+    import java.util.ArrayList;
+    import java.util.List;
 
-import static com.example.tubespbo.UserData.getInstance;
+import static com.example.tubespbo.Siswa.getInstance;
 
 
 public class JadwalPage {
@@ -61,7 +61,7 @@ public class JadwalPage {
         setDataProfil();
         setDataUsername();
         setDataID();
-        setupTableViewInOtherClass(this.tableView);
+        setupTableView(this.tableView);
     }
 
     @FXML
@@ -74,9 +74,19 @@ public class JadwalPage {
         main.switchScene("MapelPageDesign.fxml");
     }
 
+    @FXML
+    private void absensiButtonAction(ActionEvent event) throws IOException {
+        main.switchScene("AbsensiPageDesign.fxml");
+    }
+
+    @FXML
+    public void nilaiButtonAction(ActionEvent event)  throws IOException {
+        main.switchScene("NilaiPageDesign.fxml");
+    }
+
     int inputId = getInstance().storedId;
 
-    public void setupTableViewInOtherClass(TableView<JadwalMapel> tableView) {
+    public void setupTableView(TableView<JadwalMapel> tableView) {
         // Initialize your data list (assuming you have a method to fetch data from the database)
         List<JadwalMapel> jadwalMapels = fetchDataFromDatabase();
 
@@ -112,14 +122,14 @@ public class JadwalPage {
         // Example:
         try (Connection conn = DatabaseUtils.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM jadwal WHERE id = " + inputId)) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM jadwal WHERE iduser = " + inputId)) {
             int i = 0;
             while (rs.next()) {
                 i++;
                 String day = rs.getString("day");
                 String startTime = rs.getString("startTime");
                 String endTime = rs.getString("endTime");
-                String studySubjects = rs.getString("studysubjects");
+                String studySubjects = rs.getString("mapel");
 
                 JadwalMapel jadwalMapel = new JadwalMapel(day, startTime, endTime, studySubjects);
                 jadwalMapel.setNumber(i);
@@ -131,5 +141,7 @@ public class JadwalPage {
         }
         return jadwalMapels;
     }
+
+
 }
 
