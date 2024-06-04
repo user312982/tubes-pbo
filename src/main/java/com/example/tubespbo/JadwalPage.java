@@ -131,7 +131,9 @@ public class JadwalPage {
                 String endTime = rs.getString("endTime");
                 String studySubjects = rs.getString("mapel");
 
-                JadwalMapel jadwalMapel = new JadwalMapel(day, startTime, endTime, studySubjects);
+                MataPelajaran studySubject = new MataPelajaran(studySubjects, "","");
+
+                JadwalMapel jadwalMapel = new JadwalMapel(day, startTime, endTime, studySubject);
                 jadwalMapel.setNumber(i);
 
                 jadwalMapels.add(jadwalMapel);

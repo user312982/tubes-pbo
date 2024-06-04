@@ -4,17 +4,23 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 
 public class JadwalMapel {
-    private StringProperty day,startTime, endTime, studySubjects;
+    private StringProperty day, startTime, endTime;
+    private MataPelajaran studySubjects;
     private IntegerProperty number;
 
-    public JadwalMapel(String day, String startTime, String endTime, String studySubjects) {
+    private StringProperty studySubjectsProperty = new SimpleStringProperty();
+
+    public JadwalMapel(String day, String startTime, String endTime, MataPelajaran studySubjects) {
         this.day = new SimpleStringProperty(day);
         this.startTime = new SimpleStringProperty(startTime);
         this.endTime = new SimpleStringProperty(endTime);
-        this.studySubjects = new SimpleStringProperty(studySubjects);
+        this.studySubjects = studySubjects;
         this.number = new SimpleIntegerProperty();
+
+        this.studySubjectsProperty.set(studySubjects.getMapel().get());
     }
 
     public StringProperty getDay() {
@@ -41,17 +47,6 @@ public class JadwalMapel {
         this.endTime = endTime;
     }
 
-    public String getStudySubjects() {
-        return studySubjects.get();
-    }
-
-    public StringProperty studySubjectsProperty() {
-        return studySubjects;
-    }
-
-    public void setStudySubjects(String studySubjects) {
-        this.studySubjects.set(studySubjects);
-    }
 
     public IntegerProperty getNumber() {
         return number;
@@ -61,7 +56,7 @@ public class JadwalMapel {
         this.number.set(number);
     }
 
-    public IntegerProperty numberProperty(){
+    public IntegerProperty numberProperty() {
         return number;
     }
 
@@ -76,4 +71,23 @@ public class JadwalMapel {
     public StringProperty endTimeProperty() {
         return endTime;
     }
+
+    // Getter dan Setter untuk studySubjects
+    public MataPelajaran getStudySubjects() {
+        return studySubjects;
+    }
+
+    public void setStudySubjects(MataPelajaran studySubjects) {
+        this.studySubjects = studySubjects;
+
+        // Tetapkan kembali nilai properti studySubjectsProperty saat studySubjects diubah
+        this.studySubjectsProperty.set(studySubjects.getMapel().get());
+    }
+
+    // Getter untuk studySubjectsProperty
+    public StringProperty studySubjectsProperty() {
+        return studySubjectsProperty;
+    }
+
+
 }
