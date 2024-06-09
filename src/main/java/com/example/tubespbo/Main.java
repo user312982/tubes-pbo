@@ -1,5 +1,9 @@
 package com.example.tubespbo;
 
+import com.example.tubespbo.guru.GuruPage;
+import com.example.tubespbo.guru.MapelGuruPage;
+import com.example.tubespbo.guru.NilaiGuruPage;
+import com.example.tubespbo.siswa.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +24,7 @@ public class Main extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root, 800,500);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("Sistem Informasi Sekolah SMA");
         primaryStage.show();
 
         // Menetapkan objek Main ke controller Login
@@ -52,12 +56,25 @@ public class Main extends Application {
         } else if (fxmlFile.equals("NilaiPageDesign.fxml")) {
             NilaiPage controller = loader.getController();
             controller.setMain(this);
+        } else if (fxmlFile.equals("GuruPageDesign.fxml")) {
+            GuruPage controller = loader.getController();
+            controller.setMain(this);
+        } else if (fxmlFile.equals("MapelGuruDesign.fxml")) {
+            MapelGuruPage controller = loader.getController();
+            controller.setMain(this);
+        } else if (fxmlFile.equals("NilaiGuruDesign.fxml")) {
+            NilaiGuruPage controller = loader.getController();
+            controller.setMain(this);
         }
 
     }
 
     public void switchToMenuPage() throws IOException {
         switchScene("MenuPageDesign.fxml");
+    }
+
+    public void switchToGuruPage() throws IOException {
+        switchScene("GuruPageDesign.fxml");
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package com.example.tubespbo;
 
+import com.example.tubespbo.siswa.Siswa;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,7 +28,7 @@ public class Login  {
 
     private Main main;
     private int storedId;
-    private String storedPassword, storedAlamat, storedNumberPhone, storedUsername;;
+    private String storedPassword, storedAlamat, storedNumberPhone, storedUsername, storedCivitas;;
 
     //Tambahkan setter untuk Main
     public void setMain(Main main){
@@ -49,7 +50,7 @@ public class Login  {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 // Menjalankan aksi ketika teks berubah
-                updateStoredCredentials();  // Panggil metode untuk mengupdate data
+                updateStoredCredentials();
             }
         });
 
@@ -67,7 +68,11 @@ public class Login  {
     public void userLogin() throws IOException {
         int inputId = Integer.parseInt(id.getText());
         if (inputId == storedId && password.getText().equals(storedPassword)) {
-            main.switchToMenuPage();
+            if ("siswa".equals(storedCivitas)) {
+                main.switchToMenuPage();
+            } else if ("guru".equals(storedCivitas)){
+                main.switchToGuruPage();
+            }
         }else if (id.getText().isEmpty() && password.getText().isEmpty()) {
             wrongLogin.setText("Tambahkan data");
         } else {
@@ -90,8 +95,9 @@ public class Login  {
                 storedAlamat = resultSet.getString("alamat");
                 storedNumberPhone = resultSet.getString("numberphone");
                 storedUsername = resultSet.getString("nama");
+                storedCivitas = resultSet.getString("civitas");
 
-                Siswa siswa = new Siswa(storedId, storedUsername, storedAlamat, storedNumberPhone);
+                Siswa siswa = new Siswa(storedId, storedUsername, storedAlamat, storedNumberPhone, storedCivitas);
                 Siswa.setINSTANCE(siswa);
             }
 
