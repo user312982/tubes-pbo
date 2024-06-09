@@ -1,10 +1,9 @@
-package com.example.tubespbo;
+package com.example.tubespbo.models;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 
 public class JadwalMapel {
     private StringProperty day, startTime, endTime;

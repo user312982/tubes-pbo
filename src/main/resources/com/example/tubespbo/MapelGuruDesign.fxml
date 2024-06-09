@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.siswa.JadwalPage">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.guru.MapelGuruPage">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="900.0">
          <top>
@@ -32,38 +32,11 @@
          <left>
             <VBox prefHeight="330.0" prefWidth="144.0" style="-fx-background-color: #646c9c;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="JadwalButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #1f4b9c;" text="Jadwal" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/calendar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" onAction="#mapelButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Mata Pelajaran" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #1f4b9c;" text="Mata Pelajaran" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../image/book.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#absensiButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Absensi" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/absen2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" onAction="#nilaiButtonAction" prefHeight="67.0" prefWidth="146.0" style="-fx-background-color: #646c9c;" text="Nilai" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/grade.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -90,16 +63,6 @@
                <left>
                   <AnchorPane prefHeight="383.0" prefWidth="230.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="10.0" layoutY="43.0" prefHeight="6.0" prefWidth="49.0" text="Nama:">
-                           <font>
-                              <Font name="Arial Bold" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="113.0" prefHeight="21.0" prefWidth="57.0" text="ID      :">
-                           <font>
-                              <Font name="Arial Bold" size="15.0" />
-                           </font>
-                        </Label>
                         <Label fx:id="namaUser" layoutX="63.0" layoutY="39.0" prefHeight="25.0" prefWidth="154.0">
                            <font>
                               <Font name="Arial Bold" size="15.0" />
@@ -116,31 +79,21 @@
                <center>
                   <AnchorPane prefHeight="383.0" prefWidth="520.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="tableView" layoutX="-5.0" layoutY="8.0" prefHeight="361.0" prefWidth="523.0">
+                        <TableView fx:id="tableView" layoutX="-215.0" layoutY="10.0" prefHeight="361.0" prefWidth="726.0">
                            <columns>
-                              <TableColumn prefWidth="36.66668701171875" text="No.">
+                              <TableColumn prefWidth="44.666748046875" text="No.">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="number" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="97.33331298828125" text="Day">
+                              <TableColumn prefWidth="318.0" text="NIP">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="day" />
+                                    <PropertyValueFactory property="nip" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="112.66671752929688" text="Start Time">
+                              <TableColumn prefWidth="361.33331298828125" text="Mata Pelajaran">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="startTime" />
-                                 </cellValueFactory>
-                              </TableColumn>
-                              <TableColumn prefWidth="78.6666259765625" text="End Time">
-                                 <cellValueFactory>
-                                    <PropertyValueFactory property="endTime" />
-                                 </cellValueFactory>
-                              </TableColumn>
-                              <TableColumn prefWidth="200.0001220703125" text="Study Subjects">
-                                 <cellValueFactory>
-                                    <PropertyValueFactory property="studySubjects" />
+                                    <PropertyValueFactory property="mapel" />
                                  </cellValueFactory>
                               </TableColumn>
                            </columns>

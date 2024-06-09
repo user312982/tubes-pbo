@@ -1,18 +1,31 @@
-package com.example.tubespbo;
+package com.example.tubespbo.siswa;
+import com.example.tubespbo.Main;
+import com.example.tubespbo.models.AbsensiSiswa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import java.io.IOException;
-import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import javafx.scene.control.Label;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import com.example.tubespbo.DatabaseUtils;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import static com.example.tubespbo.Siswa.getInstance;
+import java.util.ArrayList;
+import java.sql.Statement;
+
+
+import static com.example.tubespbo.siswa.Siswa.getInstance;
 
 public class AbsensiPage{
     @FXML
@@ -29,6 +42,8 @@ public class AbsensiPage{
     @FXML
     private Button izinButton;
 
+    @FXML
+    private TableView<AbsensiSiswa> tableView;
 
     private boolean buttonClicked = false;
     private boolean isMorningInterval = false;
@@ -64,9 +79,16 @@ public class AbsensiPage{
 
     @FXML
     private void initialize() {
+        this.tableView = tableView;
         setData();
         scheduleButtonVisibility();
+        initializeTableView();
+        loadDataToTable();
     }
+
+    int inputId = getInstance().storedId;
+    String inputUsername = getInstance().storedUsername;
+
 
     @FXML
     private void handleButtonPress(javafx.event.ActionEvent event) {
@@ -121,7 +143,7 @@ public class AbsensiPage{
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             // Check for morning absence
-            String morningQuery = "SELECT * FROM absensi WHERE tanggal = ? AND absensi_pagi = TRUE";
+            String morningQuery = "SELECT * FROM absensi WHERE tanggal = ? AND absensi_pagi = TRUE AND nis = " + inputId;
             try (PreparedStatement stmt = conn.prepareStatement(morningQuery)) {
                 stmt.setDate(1, java.sql.Date.valueOf(LocalDate.now()));
                 try (ResultSet rs = stmt.executeQuery()) {
@@ -130,7 +152,7 @@ public class AbsensiPage{
             }
 
             // Check for afternoon absence
-            String afternoonQuery = "SELECT * FROM absensi WHERE tanggal = ? AND absensi_sore = TRUE";
+            String afternoonQuery = "SELECT * FROM absensi WHERE tanggal = ? AND absensi_sore = TRUE AND nis = " + inputId;
             try (PreparedStatement stmt = conn.prepareStatement(afternoonQuery)) {
                 stmt.setDate(1, java.sql.Date.valueOf(LocalDate.now()));
                 try (ResultSet rs = stmt.executeQuery()) {
@@ -151,8 +173,8 @@ public class AbsensiPage{
         String absensiQuery = "INSERT INTO absensi (nis, nama, status, tanggal, jam) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(absensiQuery)) {
-            stmt.setString(1, "11231020");
-            stmt.setString(2, "dicha");
+            stmt.setString(1, String.valueOf(inputId));
+            stmt.setString(2, inputUsername);
             stmt.setString(3, type);
             stmt.setDate(4, java.sql.Date.valueOf(LocalDate.now()));
             stmt.setTime(5, java.sql.Time.valueOf(LocalTime.now()));
@@ -175,7 +197,7 @@ public class AbsensiPage{
         String url = "jdbc:mysql://localhost:3306/tubespbo";
         String user = "root";
         String password = "";
-        String query = "UPDATE absensi SET absensi_pagi = TRUE WHERE tanggal = ? AND absensi_pagi = FALSE";
+        String query = "UPDATE absensi SET absensi_pagi = TRUE WHERE tanggal = ? AND absensi_pagi = FALSE AND nis = " + inputId;
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -190,7 +212,7 @@ public class AbsensiPage{
         String url = "jdbc:mysql://localhost:3306/tubespbo";
         String user = "root";
         String password = "";
-        String query = "UPDATE absensi SET absensi_sore = TRUE WHERE tanggal = ? AND absensi_sore = FALSE";
+        String query = "UPDATE absensi SET absensi_sore = TRUE WHERE tanggal = ? AND absensi_sore = FALSE AND nis = " + inputId;
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -199,5 +221,51 @@ public class AbsensiPage{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void initializeTableView() {
+        TableColumn<AbsensiSiswa, LocalDate> tanggalColumn = new TableColumn<>("Tanggal");
+        tanggalColumn.setCellValueFactory(cellData -> cellData.getValue().tanggalProperty());
+
+        TableColumn<AbsensiSiswa, LocalTime> jamColumn = new TableColumn<>("Jam");
+        jamColumn.setCellValueFactory(cellData -> cellData.getValue().jamProperty());
+
+        TableColumn<AbsensiSiswa, String> namaColumn = new TableColumn<>("Nama");
+        namaColumn.setCellValueFactory(cellData -> cellData.getValue().namaProperty());
+
+        TableColumn<AbsensiSiswa, String> statusColumn = new TableColumn<>("Status");
+        statusColumn.setCellValueFactory(cellData -> cellData.getValue().statusProperty());
+
+        TableColumn<AbsensiSiswa, Integer> nisColumn = new TableColumn<>("NIS");
+        nisColumn.setCellValueFactory(cellData -> cellData.getValue().nisProperty().asObject());
+
+        tableView.getColumns().addAll(tanggalColumn, jamColumn, namaColumn, statusColumn, nisColumn);
+    }
+
+    private void loadDataToTable() {
+        List<AbsensiSiswa> absensiList = fetchDataFromDatabase();
+        ObservableList<AbsensiSiswa> data = FXCollections.observableArrayList(absensiList);
+        tableView.setItems(data);
+    }
+
+    private List<AbsensiSiswa> fetchDataFromDatabase() {
+        List<AbsensiSiswa> absensiList = new ArrayList<>();
+        try (Connection conn = DatabaseUtils.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM absensi WHERE nis =" + inputId)) {
+            while (rs.next()) {
+                LocalDate tanggal = rs.getDate("tanggal").toLocalDate();
+                LocalTime jam = rs.getTime("jam").toLocalTime();
+                String nama = rs.getString("nama");
+                String status = rs.getString("status");
+                int nis = rs.getInt("nis");
+
+                AbsensiSiswa absensi = new AbsensiSiswa(tanggal, jam, nama, status, nis);
+                absensiList.add(absensi);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return absensiList;
     }
 }

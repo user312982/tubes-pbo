@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.AbsensiPage">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.siswa.AbsensiPage">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="900.0">
          <top>
@@ -89,9 +89,9 @@
                <left>
                   <AnchorPane prefHeight="383.0" prefWidth="230.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="hadirButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Hadir" onAction="#handleButtonPress"/>
-                        <Button fx:id="izinButton" layoutX="93.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Izin" onAction="#handleButtonPress"/>
-                        <Button fx:id="sakitButton" layoutX="163.0" layoutY="14.0" mnemonicParsing="false" text="Sakit" onAction="#handleButtonPress"/>
+                        <Button fx:id="hadirButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Hadir" />
+                        <Button fx:id="izinButton" layoutX="93.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonPress" prefHeight="25.0" prefWidth="44.0" text="Izin" />
+                        <Button fx:id="sakitButton" layoutX="163.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonPress" text="Sakit" />
                         <Label fx:id="timezoneLabel" layoutX="23.0" layoutY="80.0" />
                      </children>
                   </AnchorPane>
@@ -101,29 +101,29 @@
                      <children>
                         <TableView fx:id="tableView" layoutX="12.0" layoutY="-1.0" prefHeight="383.0" prefWidth="515.0">
                            <columns>
-                              <TableColumn prefWidth="36.66668701171875" text="No.">
+                              <TableColumn prefWidth="82.0" text="NIS">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="number" />
+                                    <PropertyValueFactory property="nis" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="92.66668701171875" text="NIS">
+                              <TableColumn prefWidth="159.99996948242188" text="Nama">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="day" />
+                                    <PropertyValueFactory property="nama" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="155.33334350585938" text="Nama">
+                              <TableColumn prefWidth="116.0" text="Tanggal">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="startTime" />
+                                    <PropertyValueFactory property="tanggal" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="137.333251953125" text="Jadwal">
+                              <TableColumn prefWidth="76.0" text="Jam">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="endTime" />
+                                    <PropertyValueFactory property="jam" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="105.3333740234375" text="Status">
+                              <TableColumn prefWidth="81.333251953125" text="Status">
                                  <cellValueFactory>
-                                    <PropertyValueFactory property="studySubjects" />
+                                    <PropertyValueFactory property="status" />
                                  </cellValueFactory>
                               </TableColumn>
                            </columns>
