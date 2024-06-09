@@ -1,10 +1,12 @@
-package com.example.tubespbo;
+package com.example.tubespbo.siswa;
 
-public class Siswa extends Person{
+import com.example.tubespbo.Person;
+
+public class Siswa extends Person {
     public static Siswa INSTANCE;
 
-    public Siswa(int storedId, String storedUsername, String storedAlamat, String NumberPhone) {
-        super(storedId, storedUsername, storedAlamat, NumberPhone);
+    public Siswa(int storedId, String storedUsername, String storedAlamat, String NumberPhone, String storedCivitas) {
+        super(storedId, storedUsername, storedAlamat, NumberPhone, storedCivitas);
     }
 
     public static Siswa getInstance() {
@@ -45,5 +47,13 @@ public class Siswa extends Person{
 
     public String getPhoneNumber(){
         return this.storedPhoneNumber;
+    }
+
+    public void setStoredCivitas(String storedCivitas){
+        this.storedCivitas = storedCivitas;
+    }
+
+    public String getStoredCivitas(){
+        return this.storedCivitas;
     }
 }
