@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.MenuPage">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tubespbo.siswa.MenuPage">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="900.0">
          <top>
@@ -93,30 +93,7 @@
          <right>
             <BorderPane prefHeight="383.0" prefWidth="754.0" BorderPane.alignment="CENTER">
                <left>
-                  <AnchorPane prefHeight="383.0" prefWidth="753.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="38.0" layoutY="29.0" text="Welcome, ">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="169.0" layoutY="29.0" text="Dicha Wijaya Kusuma">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="38.0" layoutY="101.0" text="NIS">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="115.0" layoutY="101.0" text="11231020">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <AnchorPane prefHeight="383.0" prefWidth="753.0" BorderPane.alignment="CENTER" />
                </left>
             </BorderPane>
          </right>

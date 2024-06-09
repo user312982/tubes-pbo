@@ -1,5 +1,8 @@
-package com.example.tubespbo;
+package com.example.tubespbo.siswa;
 
+import com.example.tubespbo.DatabaseUtils;
+import com.example.tubespbo.Main;
+import com.example.tubespbo.models.MataPelajaran;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +20,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.tubespbo.Siswa.getInstance;
+import static com.example.tubespbo.siswa.Siswa.getInstance;
 
 public class MapelPage {
     @FXML
